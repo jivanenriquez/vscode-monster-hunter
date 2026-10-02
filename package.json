@@ -1,0 +1,48 @@
+{
+    "name": "vscode-mh",
+    "displayName": "vscode-mh",
+    "description": "Monster Hunter pets for your VS Code",
+    "version": "0.0.1",
+    "publisher": "jivanenriquez",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jivanenriquez/vscode-monster-hunter.git"
+    },
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "views": {
+            "explorer": [
+                {
+                    "type": "webview",
+                    "id": "vscode-mh.petView",
+                    "name": "Monster Hunter"
+                }
+            ]
+        },
+        "commands": [
+            {
+                "command": "vscode-mh.start",
+                "title": "Start Monster Hunter pets",
+                "category": "Monster Hunter"
+            }
+        ]
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "package": "tsc -p ./ && vsce package --skip-license",
+        "dev": "tsc -p ./ && code --user-data-dir /tmp/mh-ud --extensions-dir /tmp/mh-ext --disable-extensions --extensionDevelopmentPath ."
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/vscode": "^1.85.0",
+        "@vscode/vsce": "^4.0.0",
+        "typescript": "^5.4.0"
+    }
+}
